@@ -1,0 +1,74 @@
+
+@import url(https://fonts.googleapis.com/css?family=Comfortaa:400,700,300);
+.main-container {
+  display: flex;
+}
+.markdown > * {
+  all: revert;
+}
+.inp-container {
+
+}
+.required::after {
+  content: ' *';
+  color: red;
+}
+/* Dark Mode Styles */
+.dark-mode {
+  background-color: #333; /* Change this to your preferred dark background color */
+  color: #fff; /* Change this to your preferred dark text color */
+}
+
+/* Light Mode Styles */
+.light-mode {
+  background-color: #fff; /* Change this to your preferred light background color */
+  color: #333; /* Change this to your preferred light text color */
+}
+.dark-mode .dark-input {
+  background-color: #1f1f1f;
+  border-radius: 5px;
+  color: #ffffff;
+  border: 1px solid #444;
+}
+
+/* Dark mode select options style */
+.dark-select .react-select__menu {
+  background-color: #1f1f1f;
+  color: #ffffff;
+  border: 1px solid #444;
+}
+
+/* Dark mode select option hover */
+.dark-select .react-select__option:hover {
+  background-color: #333;
+  color: #ffffff;
+}
+
+/* Dark mode select styles */
+.dark-select  .css-13cymwt-control {
+  background-color: #1f1f1f;
+  color: #ffffff;
+  border: 1px solid #444;
+}
+
+.dark-select .css-1nmdiq5-menu {
+  background-color: #1f1f1f;
+  color: #ffffff;
+}
+.dark-select .css-1dimb5e-singleValue {
+  color: #ffffff;
+}
+
+.dark-select .css-1fdsijx-ValueContainer {
+  background-color: #1f1f1f;
+  color: #ffffff;
+}
+.dark-select .css-1hb7zxy-IndicatorsContainer {
+  background-color: #1f1f1f;
+  color: #ffffff;
+}
+.dark-select .react-select__option:hover {
+  background-color: #333;
+  color: #ffffff;
+}
+
