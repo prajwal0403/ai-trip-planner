@@ -3,7 +3,6 @@ import { MagnifyingGlass } from 'react-loader-spinner';
 import styled from 'styled-components';
 import ReactMarkdown from 'react-markdown';
 
-
 const ButtonContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -47,18 +46,26 @@ function TripDisplay({ data, loading }) {
       {loading ? (
         <div
           className="flex items-center justify-center"
-          style={{ height: '80vh', width: '100%' }}
+          style={{ height: '100vh', width: '100%' }}
         >
-          <MagnifyingGlass
-            visible={true}
-            height="150"
-            width="150"
-            ariaLabel="MagnifyingGlass-loading"
-            wrapperStyle={{}}
-            wrapperClass="MagnifyingGlass-wrapper"
-            glassColor="#c0efff"
-            color="#e15b64"
-          />
+          <div className='block'>
+            <div style={{marginLeft:'30%'}}>
+            <MagnifyingGlass
+              visible={true}
+              height="150"
+              width="150"
+              ariaLabel="MagnifyingGlass-loading"
+              wrapperStyle={{}}
+              wrapperClass="MagnifyingGlass-wrapper"
+              glassColor="#c0efff"
+              color="#e15b64"
+            />
+            </div>
+            <div className='m-5'>
+              {' '}
+              🚗 Hang in there, we're busy crafting the perfect trip for you! 📸
+            </div>
+          </div>
         </div>
       ) : data.length === 0 ? (
         <div
@@ -70,26 +77,28 @@ function TripDisplay({ data, loading }) {
       ) : (
         <ReactMarkdown className="markdown">{data}</ReactMarkdown>
       )}
-      {data.length > 0 && <ButtonContainer>
-        <ActionButton
-          onClick={() => {
-            const blob = new Blob([data], {
-              type: 'text/plain;charset=utf-8',
-            });
-            const url = URL.createObjectURL(blob);
-            const link = document.createElement('a');
-            link.setAttribute('href', url);
-            link.setAttribute('download', 'travel-plan.txt');
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-            URL.revokeObjectURL(url);
-            return false;
-          }}
-        >
-          Download
-        </ActionButton>
-      </ButtonContainer>}
+      {data.length > 0 && (
+        <ButtonContainer>
+          <ActionButton
+            onClick={() => {
+              const blob = new Blob([data], {
+                type: 'text/plain;charset=utf-8',
+              });
+              const url = URL.createObjectURL(blob);
+              const link = document.createElement('a');
+              link.setAttribute('href', url);
+              link.setAttribute('download', 'travel-plan.txt');
+              document.body.appendChild(link);
+              link.click();
+              document.body.removeChild(link);
+              URL.revokeObjectURL(url);
+              return false;
+            }}
+          >
+            Download
+          </ActionButton>
+        </ButtonContainer>
+      )}
     </div>
   );
 }

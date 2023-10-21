@@ -123,7 +123,7 @@ function TripPlanner({ darkMode, setData, setLoading }) {
       setLoading(true);
       let prompt = `Create a personalized travel itinerary for a journey from ${formData.startingPoint} to ${formData.destination}. The travel party consists of ${formData.numberOfPeople} people with a budget of ${formData.budget}. The traveler's ideal trip is a ${formData.travelStyle} adventure, and they seek ${formData.duration} days of exciting experiences. Accommodation preferences include ${formData.accommodation}, and they prefer ${formData.transportationType} as the primary mode of transportation.
       The trip should encompass a variety of activities, with an emphasis on ${formData.activityType}. The traveler is keen on exploring local cuisines, especially ${formData.cuisineType}, and would like recommendations for dining options. Additionally, the traveler prefers to communicate in ${formData.language}.
-      Please provide a comprehensive itinerary with daily recommendations, including destinations, activities, and dining suggestions, to make this journey unforgettable.`;
+      Please provide a comprehensive itinerary with daily recommendations, including destinations, activities, and dining suggestions, to make this journey unforgettable. Please provide all details in ${formData.language} launguage`;
 
       fetch(`https://c5-na.altogic.com/e:65334e3724594faeeef6dd3b/travel`, {
         method: 'POST',
