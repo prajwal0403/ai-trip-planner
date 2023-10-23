@@ -37,31 +37,60 @@ const ActionButton = styled.button`
     border: 1px solid #ccc;
   }
 `;
+const info = `Welcome to our travel itinerary service! We're here to help you create the perfect journey based on your preferences. Please provide us with the following details:
+
+1. **Starting Point**: Where does your adventure begin? Share the name of the city or place where your journey starts.
+
+2. **Destination**: Where is your final destination? Let us know where you're headed.
+
+3. **Budget**: What's your estimated budget for this trip? A rough estimate will help us suggest suitable options.
+
+4. **Number of Travelers**: Tell us how many people are in your travel party. This will help us plan accommodations and activities accordingly.
+
+5. **Duration**: How many days will your adventure last? Share the number of days you have available.
+
+6. **Accommodation Preferences**: What type of accommodation do you prefer? You can choose from options like hotels, hostels, or vacation rentals.
+
+7. **Travel Style**: Describe your travel style. Are you looking for a relaxing road trip, an adventurous expedition, or something else?
+
+8. **Transportation Type**: Let us know your preferred mode of transportation, whether it's by car, train, or any other means.
+
+9. **Activity Type**: What types of activities are you most interested in? Options include nature exploration, cultural experiences, or anything that excites you.
+
+10. **Cuisine Type**: Are you a food enthusiast? Share your preference for trying traditional, exotic, or local cuisines.
+
+11. **Language**: In which language would you like to receive recommendations and details for your itinerary?
+
+Once you've provided all of this information, we'll create a personalized itinerary for you, including daily recommendations for destinations, activities, and dining suggestions. Our goal is to make your journey unforgettable and hassle-free.
+
+Thank you for choosing our service, and we look forward to planning your dream adventure! 🌟
+`;
 
 function TripDisplay({ data, loading }) {
   return (
     <div>
-      <h1 className="text-center text-3xl">⭐️ Your Trip Details ⭐️</h1>
-
+      {data.length > 0 && <h1 className="text-center text-3xl">
+        ⭐️ Your Customized Trip Details ⭐️
+      </h1>}
       {loading ? (
         <div
           className="flex items-center justify-center"
           style={{ height: '100vh', width: '100%' }}
         >
-          <div className='block'>
-            <div style={{marginLeft:'30%'}}>
-            <MagnifyingGlass
-              visible={true}
-              height="150"
-              width="150"
-              ariaLabel="MagnifyingGlass-loading"
-              wrapperStyle={{}}
-              wrapperClass="MagnifyingGlass-wrapper"
-              glassColor="#c0efff"
-              color="#e15b64"
-            />
+          <div className="block">
+            <div style={{ marginLeft: '30%' }}>
+              <MagnifyingGlass
+                visible={true}
+                height="150"
+                width="150"
+                ariaLabel="MagnifyingGlass-loading"
+                wrapperStyle={{}}
+                wrapperClass="MagnifyingGlass-wrapper"
+                glassColor="#c0efff"
+                color="#e15b64"
+              />
             </div>
-            <div className='m-5'>
+            <div className="m-5">
               {' '}
               🚗 Hang in there, we're busy crafting the perfect trip for you! 📸
             </div>
@@ -69,13 +98,17 @@ function TripDisplay({ data, loading }) {
         </div>
       ) : data.length === 0 ? (
         <div
-          style={{ height: '50vh' }}
-          className="text-center text-2xl flex items-center justify-center"
+          className="flex items-center justify-center"
         >
-          <div> 🌍 Please fill the details to generate your trip 🏞️</div>
+          <div>
+            <div className='text-center text-3xl p-4 m-3'> 🌍 Please fill the details to generate your trip 🏞️</div>
+            <div className=''>
+              <ReactMarkdown className="markdown p-4 ">{info}</ReactMarkdown>
+            </div>
+          </div>
         </div>
       ) : (
-        <ReactMarkdown className="markdown">{data}</ReactMarkdown>
+        <ReactMarkdown className="markdown p-3">{data}</ReactMarkdown>
       )}
       {data.length > 0 && (
         <ButtonContainer>
