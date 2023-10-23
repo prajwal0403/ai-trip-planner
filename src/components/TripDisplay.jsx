@@ -37,7 +37,7 @@ const ActionButton = styled.button`
     border: 1px solid #ccc;
   }
 `;
-const info = `Welcome to our travel itinerary service! We're here to help you create the perfect journey based on your preferences. Please provide us with the following details:
+const info = `Welcome to QuestQuill! We're here to help you create the perfect journey based on your preferences. Please provide us with the following details:
 
 1. **Starting Point**: Where does your adventure begin? Share the name of the city or place where your journey starts.
 
@@ -63,7 +63,7 @@ const info = `Welcome to our travel itinerary service! We're here to help you cr
 
 Once you've provided all of this information, we'll create a personalized itinerary for you, including daily recommendations for destinations, activities, and dining suggestions. Our goal is to make your journey unforgettable and hassle-free.
 
-Thank you for choosing our service, and we look forward to planning your dream adventure! 🌟
+Thank you for choosing QuestQuill, and we look forward to planning your dream adventure! 🌟
 `;
 
 function TripDisplay({ data, loading }) {
