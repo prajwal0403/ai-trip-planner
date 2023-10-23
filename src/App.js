@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import TripPlanner from './components/TripPlanner';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -26,6 +26,14 @@ function App() {
   const toggleFeedback = () => {
     setFeedback(!feedback);
   };
+
+  useEffect(() => {
+    if (darkMode) {
+      document.body.style.backgroundColor = "#333"
+    } else {
+      document.body.style.backgroundColor = "white"
+    }
+  }, [darkMode]);
 
   return (
     <div
