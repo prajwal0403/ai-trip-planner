@@ -135,7 +135,7 @@ function TripPlanner({ darkMode, setData, setLoading }) {
       })
         .then((response) => response.json())
         .then((data) => {
-          console.log(data);
+          // console.log(data);
           setData(data.choices[0].message.content);
           toast.success("Congratulations!" + "\n" +  "trip has been generated");
           setLoading(false);
