@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Select from 'react-select';
 import { toast } from 'react-toastify';
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
 const options = {
   travelStyles: [
@@ -125,7 +126,7 @@ function TripPlanner({ darkMode, setData, setLoading }) {
       The trip should encompass a variety of activities, with an emphasis on ${formData.activityType}. The traveler is keen on exploring local cuisines, especially ${formData.cuisineType}, and would like recommendations for dining options. Additionally, the traveler prefers to communicate in ${formData.language}.
       Please provide a comprehensive itinerary with daily recommendations, including destinations, activities, and dining suggestions, to make this journey unforgettable. Please provide all details in ${formData.language} language.`;
 
-      fetch(`https://c5-na.altogic.com/e:65334e3724594faeeef6dd3b/travel`, {
+      fetch(`${backendUrl}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -266,7 +267,7 @@ function TripPlanner({ darkMode, setData, setLoading }) {
             </span>
           </label>
           <Select
-            options={options.accommodationTypes.map((type) => ({
+            options={options.accommodationTypes.map((type, key) => ({
               value: type,
               label: type,
             }))}
@@ -294,7 +295,7 @@ function TripPlanner({ darkMode, setData, setLoading }) {
             </span>
           </label>
           <Select
-            options={options.travelStyles.map((style) => ({
+            options={options.travelStyles.map((style, key) => ({
               value: style,
               label: style,
             }))}
@@ -321,7 +322,7 @@ function TripPlanner({ darkMode, setData, setLoading }) {
             </span>
           </label>
           <Select
-            options={options.transportationTypes.map((style) => ({
+            options={options.transportationTypes.map((style, key) => ({
               value: style,
               label: style,
             }))}
@@ -348,7 +349,7 @@ function TripPlanner({ darkMode, setData, setLoading }) {
             </span>
           </label>
           <Select
-            options={options.activityTypes.map((type) => ({
+            options={options.activityTypes.map((type, key) => ({
               value: type,
               label: type,
             }))}
@@ -375,7 +376,7 @@ function TripPlanner({ darkMode, setData, setLoading }) {
             </span>
           </label>
           <Select
-            options={options.cuisineTypes.map((cuisine) => ({
+            options={options.cuisineTypes.map((cuisine, key) => ({
               value: cuisine.name,
               label: cuisine.name,
             }))}
