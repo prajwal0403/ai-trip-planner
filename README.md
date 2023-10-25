@@ -6,6 +6,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+## PPT
+[Say-hello-to-the-future-of-travel-planning.pptx](https://github.com/prajwal0403/ai-trip-planner/files/13161257/Say-hello-to-the-future-of-travel-planning.pptx)
+
 ### `npm start`
 
 Runs the app in the development mode.\
